@@ -9,7 +9,7 @@ repository = "https://github.com/aldrinzigmundv/zigarg"
 documentation = "https://docs.rs/zigarg"
 readme = "README.md"
 categories = ["command-line-interface"]
-keywords = ["arguments", "parser", "cli", "args", "light", "small"]
+keywords = ["arguments", "parser", "cli", "args", "light"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
