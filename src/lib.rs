@@ -66,8 +66,48 @@ impl Arguments {
     }
 
     ///Returns an argument from Arguments struct based on the provided index
-    pub fn get(&self, index: usize) -> &str {
-        &self.0[index]
+    pub fn get(&self, index: usize) -> core::option::Option<&String> {
+        self.0.get(index)
+    }
+
+    ///Returns value of provided flag
+    pub fn get_value(&self, query: &str) -> core::option::Option<&String> {
+        for (i, el) in self.0.iter().enumerate() {
+            if query.eq_ignore_ascii_case(&el) {
+                return self.0.get(i+1);
+            }
+        }
+        return None;
+    }
+
+    ///Returns value of provided flag
+    pub fn get_value_case_sensitive(&self, query: &str) -> core::option::Option<&String> {
+        for (i, el) in self.0.iter().enumerate() {
+            if query.eq(&el[..]) {
+                return self.0.get(i+1);
+            }
+        }
+        return None;
+    }
+
+    ///Returns index of the string slice provided from the Arguments struct or None if not found (not case sensitive)
+    pub fn get_index(&self, query: &str) -> core::option::Option<usize> {
+        for (i, el) in self.0.iter().enumerate() {
+            if query.eq_ignore_ascii_case(&el) {
+                return Some(i);
+            }
+        }
+        return None;
+    }
+
+    ///Returns index of the string slice provided from the Arguments struct or None if not found (case sensitive)
+    pub fn get_index_case_sensitive(&self, query: &str) -> core::option::Option<usize> {
+        for (i, el) in self.0.iter().enumerate() {
+            if query.eq(&el[..]) {
+                return Some(i);
+            }
+        }
+        return None;
     }
 
     ///Returns true if provided string slice is found on any of the Arguments provided by the user (not case sensitive)

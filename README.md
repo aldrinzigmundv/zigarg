@@ -23,9 +23,7 @@ Use the struct returned from `zigarg::new()` to perform different actions like t
 let has_arguments = arguments.has_args();
 //Check if the arguments provided by the user has a certain flag
 let exist = arguments.exist("-q");
-//Measure the number of arguments provided the user
-let arguments_number = arguments.len();
-//Get an argument from the arguments provided by the user via index number
-let argument = arguments.get(1);
+//Get the value of an argument
+let file_name = arguments.get_value(-f);
 ```
 Check documentation of the Arguments struct for more...
