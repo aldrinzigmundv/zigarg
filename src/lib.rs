@@ -65,12 +65,12 @@ impl Arguments {
         false
     }
 
-    ///Returns an argument from Arguments struct based on the provided index
+    ///Returns an &String from Arguments struct based on the provided index or None if not found
     pub fn get(&self, index: usize) -> core::option::Option<&String> {
         self.0.get(index)
     }
 
-    ///Returns value of provided flag
+    ///Returns value of provided flag(not case sensitive) or None if not found
     pub fn get_value(&self, query: &str) -> core::option::Option<&String> {
         for (i, el) in self.0.iter().enumerate() {
             if query.eq_ignore_ascii_case(&el) {
@@ -80,7 +80,7 @@ impl Arguments {
         return None;
     }
 
-    ///Returns value of provided flag
+    ///Returns value of provided flag (case sensitive) or None if not found
     pub fn get_value_case_sensitive(&self, query: &str) -> core::option::Option<&String> {
         for (i, el) in self.0.iter().enumerate() {
             if query.eq(&el[..]) {
