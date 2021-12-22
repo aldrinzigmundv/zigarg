@@ -2,7 +2,7 @@
 #![warn(missing_docs)]
 #![forbid(unsafe_code)]
 
-//! zigarg is a very light argument parser written fully in Rust. It's composed only of a small number but very helpful lines and lacks a lot of features but suitable for many applications, especially personal or small projects. It's also good for educational purposes as it isn't very complex.
+//! zigarg is a very light argument parser written fully in Rust. It's not dependent on any third party libraries other than those that Rust already comes with. It lacks many features, like help generation, but enough to be suitable for a lot of applications. It's also good for educational purposes as it isn't very complex.
 //! 
 //! I decided to publish the library after using it on several private CLI applications I made. I may add additional features in the future if I find it useful for my own projects as well.
 //! 
