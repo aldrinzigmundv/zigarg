@@ -32,18 +32,18 @@
 use std::{env, ops::Deref};
 
 #[derive(Debug)]
-///Struct that contains the arguments provided by the user
+///`Struct` that contains the arguments provided by the user
 pub struct Arguments(pub Vec<String>);
 
 impl Arguments {
 
-    ///Returns an Arguments struct that contains the arguments provided by the user with zigarg's functionalities
+    ///Returns an `Arguments` struct that contains the arguments provided by the user with zigarg's functionalities
     pub fn new() -> Arguments {
         let args = env::args().collect();
         Arguments(args)
     }
     
-    ///Returns true if the user provided arguments other than the program name
+    ///Returns `true` if the user provided arguments other than the program name
     pub fn has_args(&self) -> bool {
         if &self.0.len() > &1 {
             true
@@ -52,12 +52,12 @@ impl Arguments {
         }
     }
 
-    ///Returns the lenght of the Arguments struct
+    ///Returns the lenght through `usize` of the `Arguments` struct
     pub fn len(&self) -> usize {
         self.0.deref().len()
     }
 
-    ///Returns true if the number provided is equals to the number Arguments struct has
+    ///Returns `true` if the number provided is equals to the number `Arguments` struct has
     pub fn eq(&self, num: usize) -> bool {
         if &self.0.len() == &num {
             return true
@@ -65,12 +65,12 @@ impl Arguments {
         false
     }
 
-    ///Returns an &String from Arguments struct based on the provided index or None if not found
+    ///Returns a `Some(&String)` from the Arguments struct based on the provided index or `None` if not found
     pub fn get(&self, index: usize) -> core::option::Option<&String> {
         self.0.get(index)
     }
 
-    ///Returns value of provided flag(not case sensitive) or None if not found
+    ///Returns value through `Some('&String)` of provided flag (not case sensitive) or `None` if not found
     pub fn get_value(&self, query: &str) -> core::option::Option<&String> {
         for (i, el) in self.0.iter().enumerate() {
             if query.eq_ignore_ascii_case(&el) {
@@ -80,7 +80,7 @@ impl Arguments {
         return None;
     }
 
-    ///Returns value of provided flag (case sensitive) or None if not found
+    ///Returns value through `Some(&String)` of provided flag (case sensitive) or `None` if not found
     pub fn get_value_case_sensitive(&self, query: &str) -> core::option::Option<&String> {
         for (i, el) in self.0.iter().enumerate() {
             if query.eq(&el[..]) {
@@ -90,7 +90,7 @@ impl Arguments {
         return None;
     }
 
-    ///Returns index of the string slice provided from the Arguments struct or None if not found (not case sensitive)
+    ///Returns index through `Some(usize)` of the `&str` slice provided from the `Arguments` struct or `None` if not found (not case sensitive)
     pub fn get_index(&self, query: &str) -> core::option::Option<usize> {
         for (i, el) in self.0.iter().enumerate() {
             if query.eq_ignore_ascii_case(&el) {
@@ -100,7 +100,7 @@ impl Arguments {
         return None;
     }
 
-    ///Returns index of the string slice provided from the Arguments struct or None if not found (case sensitive)
+    ///Returns index through `Some(usize)` of the `&str` slice provided from the `Arguments` struct or `None` if not found (case sensitive)
     pub fn get_index_case_sensitive(&self, query: &str) -> core::option::Option<usize> {
         for (i, el) in self.0.iter().enumerate() {
             if query.eq(&el[..]) {
@@ -110,7 +110,7 @@ impl Arguments {
         return None;
     }
 
-    ///Returns true if provided string slice is found on any of the Arguments provided by the user (not case sensitive)
+    ///Returns `true` if provided `&str` slice is found on any of the arguments provided by the user in the `Arguments` struct (not case sensitive)
     pub fn exist(&self, query: &str) -> bool {
         for arg in &self.0 {
             if query.eq_ignore_ascii_case(&arg) {
@@ -120,7 +120,7 @@ impl Arguments {
         false
     }
 
-    ///Returns true if provided string slice is found on any of the Arguments provided by the user (not case sensitive)
+    ///Returns `true` if provided `&str` slice is found on any of the arguments provided by the user in the `Arguments` struct (case sensitive)
     pub fn exist_case_sensitive(&self, query: &str) -> bool {
         for arg in &self.0 {
             if query.eq(&arg[..]) {

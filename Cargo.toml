@@ -1,7 +1,7 @@
 [package]
 name = "zigarg"
 description = "zigarg is a very light argument parser written fully in Rust. It's not dependent on any third party libraries other than those that Rust already comes with. It lacks many features, like help generation, but enough to be suitable for a lot of applications. It's also good for educational purposes as it isn't very complex."
-version = "0.2.4"
+version = "0.2.5"
 edition = "2018"
 license = "MIT OR Apache-2.0"
 homepage = "https://github.com/aldrinzigmundv/zigarg"
