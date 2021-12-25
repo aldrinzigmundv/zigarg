@@ -11,10 +11,11 @@ I decided to publish the library after using it on several private CLI applicati
 Add `zigarg` to `Cargo.toml` as a dependency
 ```
 [dependencies]
-zigarg = "0.1.0"
+zigarg = "1.0.0"
 ```
 Capture user's arguments by adding the code below, after you have added zigarg to your dependencies:
 ```ignore
+use zigarg::Arguments;
 let arguments = zigarg::new();
 ```
 Use the struct returned from `zigarg::new()` to perform different actions like the examples below

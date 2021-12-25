@@ -10,11 +10,12 @@
 //! Add `zigarg` to `Cargo.toml` as a dependency
 //! ```ignore
 //! [dependencies]
-//! zigarg = "0.1.0"
+//! zigarg = "1.0.0"
 //! ```
 //! Capture user's arguments by adding the code below, after you have added zigarg to your dependencies:
 //! ```ignore
-//! let arguments = zigarg::new();
+//! use zigarg::Arguments;
+//! let arguments = Arguments::new();
 //! ```
 //! Use the struct returned from `zigarg::new()` to perform different actions like the examples below
 //! ```ignore
