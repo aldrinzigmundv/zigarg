@@ -30,7 +30,7 @@
 //! ```
 //! Check documentation of the Arguments struct below for more...
 
-use std::{env, ops::Deref};
+use std::{env, ops::Deref, usize};
 
 #[derive(Debug)]
 ///`Struct` that contains the arguments provided by the user
@@ -129,5 +129,10 @@ impl Arguments {
             }
         }
         false
+    }
+
+    ///Returns the rest of the arguments based on provided index
+    pub fn get_after_index(&self, query: usize) -> Vec<String> {
+        self.0[query..].iter().map(|x| x.to_owned()).collect()
     }
 }

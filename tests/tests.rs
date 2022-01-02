@@ -83,3 +83,9 @@ fn exist_case_sensitive() {
     assert_eq!(args.exist_case_sensitive("twoargs"), true);
     assert_eq!(args.exist_case_sensitive("threeArgs"), false);
 }
+
+#[test]
+fn get_after_index() {
+    let args = Arguments(vec!["onearg".to_string(), "twoargs".to_string(), "threeargs".to_string(), "fourargs".to_string(), "fiveargs".to_string()]);
+    assert_eq!(args.get_after_index(2), vec!["threeargs".to_string(), "fourargs".to_string(), "fiveargs".to_string()])
+}
